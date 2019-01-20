@@ -138,7 +138,6 @@ class DynamicFieldSet extends React.Component {
                     </Form.Item>
                 </Form>
             </Modal>
-
         );
     }
 }
