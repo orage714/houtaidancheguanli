@@ -5,7 +5,7 @@
 
 # testing
 /coverage
-
+/text
 # production
 /build
 

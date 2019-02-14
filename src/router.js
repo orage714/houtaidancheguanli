@@ -29,6 +29,7 @@ import Pie from './pages/echarts/pie/index'
 import Line from './pages/echarts/line/index'
 import Permission from './pages/permission'
 import AddForm from './demo/addForm'
+import Check from './demo/checkButton'
 export default class ERouter extends React.Component{
 
     render(){

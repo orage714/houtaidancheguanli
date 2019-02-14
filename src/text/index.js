@@ -28,7 +28,7 @@ class DynamicFieldSet extends React.Component {
       cardObj
     })
   }
-
+ 
   add(item) {
     let vIndex = this.index
     item[1].itemList.push(++vIndex)
@@ -43,16 +43,8 @@ class DynamicFieldSet extends React.Component {
   handleSubmit = () => {
     const { validateFields } = this.props.form;
     validateFields((err, values) => {
-      console.log(values,'-----------------values')
-      debugger
+      console.log(values)
     })
-  }
-  Cancel(){//达到 再次点击MOdal出现时，是初始状态
-    this.setState({
-       visible: false ,
-       cardObj:new Map()
-      },()=>this.initCard()
-      )
   }
   render() {
     const { getFieldDecorator, getFieldValue } = this.props.form;
@@ -75,7 +67,7 @@ class DynamicFieldSet extends React.Component {
           style={{ width: 200 }}
 
         >
-          {getFieldDecorator(`${item[0]}.names`, {
+          {getFieldDecorator(`names[${item[0]}]`, {
             validateTrigger: ['onChange', 'onBlur'],
             rules: [{
               required: true,
@@ -133,20 +125,27 @@ class DynamicFieldSet extends React.Component {
       </Card >
 
     })
-    return [
-      <Button type='primary' onClick={() => this.setState({ visible: true })}>添加表单</Button>,
-      <Modal visible={visible} title="添加表单" onOk={this.handleSubmit} onCancel={this.Cancel.bind(this)} >
-        <Form >
-          {formItems}
-          <Form.Item {...formItemLayout}>
-            <Button type="dashed" onClick={this.initCard} style={{ width: '60%' }}>
-              <Icon type="plus" /> Add field
-          </Button>
-          </Form.Item>
-        </Form>
-      </Modal >
-    ];
-  }
+    return ( 
+      <div>
+        
+      <Button type='primary' onClick={() => this.setState({ visible: true })}>添加表单</Button>
+      
+        (<Modal visible = { visible } title = "添加表单" onOk = { this.handleSubmit } onCancel = {()=> this.setState({ visible: false })
+      } > 
+      <Form >
+        {formItems}
+        <Form.Item {...formItemLayout}>
+          <Button type="dashed" onClick={this.initCard} style={{ width: '60%' }}>
+            <Icon type="plus" /> Add field
+                    </Button>
+        </Form.Item>
+      </Form>
+        </Modal >)
+      </div>
+            
+
+    );
+}
 }
 
 const WrappedDynamicFieldSet = Form.create({ name: 'dynamic_form_item' })(DynamicFieldSet);
