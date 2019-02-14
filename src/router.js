@@ -13,8 +13,7 @@ import Messages from './pages/ui/messages'
 import Tabs from './pages/ui/tabs'
 import Gallery from './pages/ui/gallery'
 import Carousel from './pages/ui/carousel'
-import FormLogin from './pages/form/login'
-import FormRegister from './pages/form/register'
+import Form from './pages/form'
 import BasicTable from './pages/table/basicTable'
 import HighTable from './pages/table/highTable'
 import Rich from './pages/rich'
@@ -28,10 +27,8 @@ import Bar from './pages/echarts/bar/index'
 import Pie from './pages/echarts/pie/index'
 import Line from './pages/echarts/line/index'
 import Permission from './pages/permission'
-import AddForm from './demo/addForm'
-import Check from './demo/checkButton'
+import Demo from './demo'
 export default class ERouter extends React.Component{
-
     render(){
         return (
             <HashRouter>
@@ -56,8 +53,7 @@ export default class ERouter extends React.Component{
                                     <Route path="/ui/tabs" component={Tabs} />
                                     <Route path="/ui/gallery" component={Gallery} />
                                     <Route path="/ui/carousel" component={Carousel} />
-                                    <Route path="/form/login" component={FormLogin} />
-                                    <Route path="/form/reg" component={FormRegister} />
+                                    <Route path="/form" component={Form} />
                                     <Route path="/table/basic" component={BasicTable} />
                                     <Route path="/table/high" component={HighTable} />
                                     <Route path='/rich' component={Rich} />
@@ -69,7 +65,7 @@ export default class ERouter extends React.Component{
                                     <Route path="/charts/pie" component={Pie} />
                                     <Route path="/charts/line" component={Line} />
                                     <Route path="/permission" component={Permission} />
-                                    <Route path="/demo/addForm" component={AddForm}/>
+                                    <Route path="/demo" component={Demo}/>
                                     <Redirect to="/home" />
 
                                     {/* <Route component={NoMatch} /> */}

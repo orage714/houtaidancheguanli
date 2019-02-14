@@ -58,8 +58,7 @@ const menuList = [
             },
             {
                 title:'添加动态表单',
-                key:'/demo/addForm'
-            
+                key:'/form/addForm'
             },
         ]
     },

@@ -1,7 +1,5 @@
 import React from 'react';
 import { Form, Row, Col, Icon, Input, Select, Card, Button, Modal } from 'antd';
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
 import { map } from "lodash";
 import './index.less'
 
